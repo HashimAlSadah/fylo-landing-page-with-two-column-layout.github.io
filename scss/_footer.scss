@@ -1,0 +1,128 @@
+@use "./config";
+@use "./mixin";
+
+$font-color: rgba(255, 255, 255, 0.87);
+
+.footer{
+    background-color: config.$very-dark-blue;
+    padding: 3em 2em 0 2em;
+}
+
+.footer .content-wraper{
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.footer__logo{
+    width: 160px;
+}
+
+.footer__logo img{
+    filter: brightness(0) invert(1);
+}
+
+.company-info{
+    margin: 2em 0 3em 0;
+}
+
+.company-info p{
+    font-size: 0.9rem;
+    color: $font-color;
+}
+
+.company-info img{
+    width: 20px;
+}
+
+
+.company-info > div{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.company-info > div + div{
+    margin-top: 1em;
+}
+
+.footer__menu a{
+    color:  $font-color;;
+    font-family: config.$body-font-family;
+    transition: color 0.4s ease;
+}
+
+.footer__menu ul + ul{
+    margin-top: 2em;
+}
+
+.footer__menu li + li{
+    margin-top: 0.75em;
+}
+
+.social-media{
+    display: flex;
+    justify-content: center;
+    gap: 0.75em;
+    margin: 2em 0;
+}
+
+.social-media i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:  $font-color;;
+    font-size: 1.0rem;
+    border: 1px solid  $font-color;;
+    border-radius: 50%;
+    // padding: 0.7em;
+    width: 30px;
+    height: 30px;
+}
+
+@include mixin.screenMinWidthStyle(config.$first-break-point){
+    .footer{    
+        padding: 5em 3em 0 3em;
+    }
+    .footer__row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 4em;
+        margin: 1.5em 0 3em;
+    }
+
+    .company-info{
+        margin-top: 0;
+    }
+
+    .social-media{
+        margin-top: 0;
+    }
+
+    .footer__menu{
+        display: flex;
+        gap: 10em;
+    }
+
+    .footer__menu ul + ul{
+        margin-top: 0em;
+    }
+
+    .footer__menu a:hover{
+        color: config.$desaturated-blue;
+    }
+
+    .social-media i{
+        cursor: pointer;
+        transition: all 0.4s ease;
+        &:hover{
+            border-color: config.$bright-blue;
+            color: config.$bright-blue;
+        }
+    }
+}
+
+
+
+
+

@@ -1,0 +1,54 @@
+@use "./config";
+@use "./mixin";
+.testimonial__card{
+    max-width: 400px;
+    background-color: white;
+    padding: 1.5em;
+    margin: 2em auto 0 auto;
+    box-shadow: 0px 1px 4px 4px rgba(black, 0.05);
+}
+
+.quotes-mark{
+    width: 15px;
+    margin-bottom: 0.5em;
+}
+
+.testimonial__card > p{
+    color: config.$very-dark-blue;
+    font-size: 0.74rem;
+    line-height: 1.7;
+    margin-bottom: 1em;
+
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.avatar{
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-info p{
+    color: config.$very-dark-blue;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.user-info small{
+    font-family: config.$body-font-family;
+    color: config.$very-dark-blue;
+    font-size: 0.7rem;
+}
+
+@include mixin.screenMinWidthStyle(config.$second-break-point){
+    .testimonial__card{
+        margin: 2em 0 0;
+    }
+}
+
+ 

@@ -1,0 +1,46 @@
+@use "./config";
+@use "./mixin";
+
+.email-form input{
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    padding: 0 1em;
+    font-family: config.$body-font-family;
+    border: 1.2px solid config.$very-dark-blue;
+    border-radius: 4px;
+}
+
+.intro .input-container{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+.early-access .input-container{
+    max-width: 350px;
+    margin: 2em auto 0.5em auto;
+}
+
+@include mixin.screenMinWidthStyle(config.$intro-email-form-break-point){
+
+    .intro .input-container{
+        margin: unset;
+        flex: 1 0 55%;
+        max-width: 300px;
+    }
+
+    .intro input{
+        margin: unset;
+    }
+}
+
+@include mixin.screenMinWidthStyle(config.$second-break-point){
+    .early-access .input-container{
+        max-width: unset;
+        width: 450px;
+        margin: 2em 0 0.5em 0;
+    }
+}
+
+

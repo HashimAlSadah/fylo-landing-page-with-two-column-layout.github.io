@@ -1,0 +1,87 @@
+@use "./config";
+@use "./mixin";
+
+.intro{
+    
+    margin: 5em auto;
+    padding: 0 3em;
+    text-align: center;
+}
+
+.hero{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.CTA__title{
+    font-size: 1.5rem;
+    margin: 1em 0;
+}
+
+.CTA__body{
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.intro .email-form{
+    margin-top: 1.75em;
+}
+
+.intro .error-message{
+    color: config.$error-message-color;
+    font-size: 0.7rem;
+    margin-top: 0.2em;
+    text-align: left;
+    opacity: 0;
+    margin-bottom: -2em;
+    transition: opacity 0.3s ease 50ms, margin-bottom 0.3s ease;
+}
+
+.intro .error-message.active{
+    margin-bottom: 0;
+    opacity: 1;
+}
+
+
+@include mixin.screenMinWidthStyle(config.$second-break-point){
+    .intro{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 4%;
+        text-align: left;
+    }
+
+    .hero{
+        margin: unset;
+        max-width: unset;
+        min-width: 500px;
+        width: clamp(500px, 50vw, 700px);
+    }
+
+
+    .CTA__title{
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .CTA__body{
+        margin: unset;
+        font-size: clamp(0.9rem, 3vw, 1.05rem);
+    }
+
+}
+
+@include mixin.screenMinWidthStyle(config.$intro-email-form-break-point){
+    .intro .email-form{
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5em;
+    }
+}
+
+
+
+
+

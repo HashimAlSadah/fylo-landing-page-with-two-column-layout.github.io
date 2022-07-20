@@ -1,0 +1,60 @@
+@use "./config";
+@use "./mixin";
+
+.early-access{
+    background-color: config.$desaturated-blue;
+    padding: 3.5em 2em;
+    text-align: center;
+}
+
+.early-access h3, .early-access p{
+    color: white;
+}
+
+.early-access p:not(.error-message){
+    max-width: 700px;
+    font-size: 0.95rem;
+    margin: 1.5em auto 0 auto;
+}
+
+.early-access .error-message{
+    color: config.$error-message-color;
+    text-align: left;
+    font-size: 0.7rem;
+    color: white;
+    opacity: 0;
+    margin-bottom: -1.5em;
+    transition: opacity 0.3s ease 50ms, margin-bottom 0.3s ease;
+}
+
+.early-access .error-message.active{
+    margin-bottom: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease 50ms, margin-bottom 0.3s ease;
+}
+
+@include mixin.screenMinWidthStyle(config.$second-break-point){
+    .early-access{
+        padding: 5em 3em;
+        text-align: left;
+    }
+
+    .early-access .content-wraper{
+        display: flex;
+        justify-content: space-between;
+        gap: 5%;
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+    .early-access__text{
+        max-width: 500px;
+    }
+
+    .early-access h3{
+        font-size: clamp(1.3rem, 3vw, 2.0rem);
+    }
+
+    .early-access p{
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+}

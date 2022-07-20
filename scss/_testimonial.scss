@@ -1,0 +1,157 @@
+@use "./config";
+@use "./mixin";
+
+$bg-color: #f8f8fe;
+$hover-color: hsl(170, 64%, 64%);
+.testimonial{
+    position: relative;
+    background-color: $bg-color;
+    padding: 1.5em 2em 5em 2em;
+    margin-top: clamp(10em, 40vw, 15em);
+}
+
+.testimonial::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20vw;
+    transform: translateY(-100%);
+    background-image: url("/images/bg-curve-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+}
+
+.testimonial__image{
+    max-width: 500px;
+    margin: 0 auto 5em auto;
+}
+
+.testimonial h2{
+    font-size: 1.05rem;
+    text-align: center;
+    margin: 1.2em 0;
+}
+
+.testimonial p{
+    font-size: 0.9rem;
+    color: rgba(#6c6c84, 1);
+}
+
+.testimonial  p + p{
+    margin-top: 1em;
+}
+
+.testimonial .link{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: max-content;
+    margin: 2em auto 3em auto;
+}
+
+.testimonial .link::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: -0.3em;
+    height: 1.4px;
+    background-color: config.$moderate-cyan;
+}
+
+
+.testimonial .link a{
+    display: block;
+    color: config.$moderate-cyan;
+    font-family: config.$body-font-family;
+    font-size: clamp(0.8rem, 3vw, 0.85rem);
+}
+
+.testimonial .link img{
+    width: 20px;
+}
+
+@include mixin.screenMinWidthStyle(config.$first-break-point){
+
+    .testimonial__text p{
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+@include mixin.screenMinWidthStyle(config.$second-break-point){
+    .testimonial{
+        padding: 1.5em 3em 5em 3em;
+    }
+
+    .testimonial__image{
+        margin: 0;
+    }
+
+    .testimonial .content-wraper{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 7%;
+    }
+
+    .testimonial::before{
+        background-image: url("/images/bg-curve-desktop.svg");
+        height: 20%;
+        background-size: cover;
+    }
+
+    .testimonial h2{
+        margin-top: 0;
+        font-size: clamp(1.3rem, 3vw, 2.0rem);
+        text-align: left;
+    }
+
+    .testimonial__text p{
+        text-align: left;
+        font-size: clamp(0.9rem, 3vw, 1.05rem);
+    }
+
+    .testimonial .link{
+        margin: 2em 0 3em 0;
+    }
+
+    .link__text,
+    .link .arrow-img,
+    .testimonial .link::after{
+        transition: all 0.4s ease;
+    }
+
+    .testimonial .link:hover {
+        .arrow-img{
+            filter: brightness(1.4);
+        }
+
+        .link__text{
+            color: $hover-color;
+        }
+
+        &::after{
+            background-color: $hover-color;
+        }
+    }
+
+}
+
+@include mixin.screenMinWidthStyle(config.$big-screens-break-point){
+
+    .testimonial{
+        margin-top: 10em;
+        padding-top: 8em;
+    }
+    .testimonial::before{
+        background-image: none;
+    }
+}
+
+
+

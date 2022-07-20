@@ -1,0 +1,41 @@
+@use "./config";
+@use "./mixin";
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    padding: 1.5em;
+}
+
+.header__logo{
+    min-width: 100px;
+    width: 16%;
+    max-width: 160px;
+}
+
+.header__menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    font-family: config.$headers-CTA-nav-font-family;
+}
+
+.header__menu a{
+    font-size: clamp(0.85rem, 3vw, 1rem);
+    color: config.$desaturated-blue;
+}
+
+@include mixin.screenMinWidthStyle(config.$first-break-point){
+    .header{
+        padding: 2.5em 2.25em;
+    }
+
+    .header__menu{
+        gap: 2.5em;
+    }
+
+}
