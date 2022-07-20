@@ -9,6 +9,11 @@
     font-family: config.$body-font-family;
     border: 1.2px solid config.$very-dark-blue;
     border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.email-form input.active{
+    border-color: config.$error-message-color;
 }
 
 .intro .input-container{

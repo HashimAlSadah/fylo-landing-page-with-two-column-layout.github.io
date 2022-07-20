@@ -10,8 +10,10 @@ buttonIntro.addEventListener("click", (event)=>{
     const email = emailInputIntro.value;
     if(!emailRegExp.test(email)){
         introErrorMessage.classList.add("active");
+        emailInputIntro.classList.add("active");
     }else if(emailRegExp.test(email)){
         introErrorMessage.classList.remove("active");
+        mailInputIntro.classList.remove("active");
     }
 })
 
@@ -20,8 +22,10 @@ buttonEarlyAccess.addEventListener("click", (event)=>{
     const email = emailInputEarlyAccess.value;
     if(!emailRegExp.test(email)){
         earlyAccessErrorMessage.classList.add("active");
+        emailInputEarlyAccess.classList.add("active");
     }else if(emailRegExp.test(email)){
         earlyAccessErrorMessage.classList.remove("active");
+        emailInputEarlyAccess.classList.remove("active");
     }
 })
 
