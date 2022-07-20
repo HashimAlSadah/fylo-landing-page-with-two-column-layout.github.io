@@ -248,7 +248,7 @@ input::placeholder {
   right: 0;
   height: 20vw;
   transform: translateY(-100%);
-  background-image: url("/images/bg-curve-mobile.svg");
+  background-image: url("../images/bg-curve-mobile.svg");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
@@ -324,7 +324,7 @@ input::placeholder {
     gap: 7%;
   }
   .testimonial::before {
-    background-image: url("/images/bg-curve-desktop.svg");
+    background-image: url("../images/bg-curve-desktop.svg");
     height: 20%;
     background-size: cover;
   }
